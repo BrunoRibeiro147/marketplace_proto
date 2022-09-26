@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package orders_grpc;
+
+service OrderService {
+  rpc ListStaleOrders(ListOrdersRequest) returns (ListOrdersResponse);
+}
+
+message ListOrdersRequest {
+  repeated AggregateSuppliers aggregate_suppliers = 1;
+  string status = 2;
+}
+
+message AggregateSuppliers {
+  repeated string suppliers = 1;
+  int32 stale_days = 2;
+}
+
+message ListOrdersResponse {
+  repeated Order orders = 1;
+}
+
+message Order {
+  string code = 1;
+  int32 supplier_id = 2;
+}
