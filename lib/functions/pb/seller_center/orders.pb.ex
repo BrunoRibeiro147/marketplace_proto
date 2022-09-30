@@ -1,16 +1,16 @@
-defmodule OrdersGrpc.ListOrdersRequest do
+defmodule OrdersGRPC.ListOrdersRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :aggregate_suppliers, 1,
     repeated: true,
-    type: OrdersGrpc.AggregateSuppliers,
+    type: OrdersGRPC.AggregateSuppliers,
     json_name: "aggregateSuppliers"
 
   field :status, 2, type: :string
 end
 
-defmodule OrdersGrpc.AggregateSuppliers do
+defmodule OrdersGRPC.AggregateSuppliers do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -18,14 +18,14 @@ defmodule OrdersGrpc.AggregateSuppliers do
   field :stale_days, 2, type: :int32, json_name: "staleDays"
 end
 
-defmodule OrdersGrpc.ListOrdersResponse do
+defmodule OrdersGRPC.ListOrdersResponse do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :orders, 1, repeated: true, type: OrdersGrpc.Order
+  field :orders, 1, repeated: true, type: OrdersGRPC.Order
 end
 
-defmodule OrdersGrpc.Order do
+defmodule OrdersGRPC.Order do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -33,14 +33,14 @@ defmodule OrdersGrpc.Order do
   field :supplier_id, 2, type: :int32, json_name: "supplierId"
 end
 
-defmodule OrdersGrpc.OrderService.Service do
+defmodule OrdersGRPC.ListStaleOrders.Service do
   @moduledoc false
-  use GRPC.Service, name: "orders_grpc.OrderService", protoc_gen_elixir_version: "0.11.0"
+  use GRPC.Service, name: "OrdersGRPC.ListStaleOrders", protoc_gen_elixir_version: "0.11.0"
 
-  rpc :ListStaleOrders, OrdersGrpc.ListOrdersRequest, OrdersGrpc.ListOrdersResponse
+  rpc :execute, OrdersGRPC.ListOrdersRequest, OrdersGRPC.ListOrdersResponse
 end
 
-defmodule OrdersGrpc.OrderService.Stub do
+defmodule OrdersGRPC.ListStaleOrders.Stub do
   @moduledoc false
-  use GRPC.Stub, service: OrdersGrpc.OrderService.Service
+  use GRPC.Stub, service: OrdersGRPC.ListStaleOrders.Service
 end

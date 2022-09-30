@@ -1,9 +1,9 @@
 syntax = "proto3";
 
-package orders_grpc;
+package OrdersGRPC;
 
-service OrderService {
-  rpc ListStaleOrders(ListOrdersRequest) returns (ListOrdersResponse);
+service ListStaleOrders {
+  rpc execute(ListOrdersRequest) returns (ListOrdersResponse);
 }
 
 message ListOrdersRequest {
