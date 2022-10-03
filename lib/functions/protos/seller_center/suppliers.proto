@@ -2,15 +2,15 @@ syntax = "proto3";
 
 package SuppliersGRPC;
 
-service ListSupplier {
-  rpc execute(ListSupplierRequest) returns (ListSupplierResponse);
+service GetSupplier {
+  rpc execute(GetSupplierRequest) returns (GetSupplierResponse);
 }
 
-message ListSupplierRequest {
+message GetSupplierRequest {
   int32 id = 1;
 }
 
-message ListSupplierResponse {
+message GetSupplierResponse {
   Supplier supplier = 1;
 }
 

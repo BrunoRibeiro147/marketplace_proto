@@ -1,11 +1,11 @@
-defmodule SuppliersGRPC.ListSupplierRequest do
+defmodule SuppliersGRPC.GetSupplierRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field(:id, 1, type: :int32)
 end
 
-defmodule SuppliersGRPC.ListSupplierResponse do
+defmodule SuppliersGRPC.GetSupplierResponse do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -28,14 +28,14 @@ defmodule SuppliersGRPC.Supplier do
   field(:id, 10, type: :int32)
 end
 
-defmodule SuppliersGRPC.ListSupplier.Service do
+defmodule SuppliersGRPC.GetSupplier.Service do
   @moduledoc false
-  use GRPC.Service, name: "SuppliersGRPC.ListSupplier", protoc_gen_elixir_version: "0.11.0"
+  use GRPC.Service, name: "SuppliersGRPC.GetSupplier", protoc_gen_elixir_version: "0.11.0"
 
-  rpc(:execute, SuppliersGRPC.ListSupplierRequest, SuppliersGRPC.ListSupplierResponse)
+  rpc(:execute, SuppliersGRPC.GetSupplierRequest, SuppliersGRPC.GetSupplierResponse)
 end
 
-defmodule SuppliersGRPC.ListSupplier.Stub do
+defmodule SuppliersGRPC.GetSupplier.Stub do
   @moduledoc false
-  use GRPC.Stub, service: SuppliersGRPC.ListSupplier.Service
+  use GRPC.Stub, service: SuppliersGRPC.GetSupplier.Service
 end
