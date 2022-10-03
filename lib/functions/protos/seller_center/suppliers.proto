@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package SuppliersGRPC;
+
+service ListSupplier {
+  rpc execute(ListSupplierRequest) returns (ListSupplierResponse);
+}
+
+message ListSupplierRequest {
+  int32 id = 1;
+}
+
+message ListSupplierResponse {
+  Supplier supplier = 1;
+}
+
+message Supplier {
+  string name = 1;
+  string contact_name = 2;
+  bool active = 3;
+  int32 trading_fee = 4;
+  string cnpj = 5;
+  string email = 6;
+  string company_name = 7;
+  int32 nf_stale_days = 8;
+  int32 confirmation_stale_days = 9;
+  int32 id = 10;
+}
