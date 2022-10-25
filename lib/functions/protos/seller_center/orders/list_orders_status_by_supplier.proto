@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package grpc.orders;
+
+service ListOrderStatusSummaries {
+  rpc execute(ListSummariesRequest) returns (ListSummariesResponse);
+}
+
+message ListSummariesRequest {
+  repeated int32 supplier_ids = 1;
+}
+
+message ListSummariesResponse {
+  repeated Summary summaries = 1;
+}
+
+message Summary {
+  int32 supplier_id = 1;
+  int32 amount_created = 2;
+  int32 amount_confirmed = 3;
+  int32 amount_paid = 4;
+}
