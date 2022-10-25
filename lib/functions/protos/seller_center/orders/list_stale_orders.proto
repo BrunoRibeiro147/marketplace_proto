@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package OrdersGRPC;
+package grpc.orders;
 
 service ListStaleOrders {
   rpc execute(ListOrdersRequest) returns (ListOrdersResponse);

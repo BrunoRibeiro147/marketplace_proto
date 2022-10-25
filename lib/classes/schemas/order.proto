@@ -1,0 +1,25 @@
+syntax = 'proto3';
+
+package schema.order;
+
+message Order {
+  string observation = 1;
+  string status = 2;
+  int32 finance_id = 3;
+  int32 total_amount = 4;
+  int32 total_discount = 5;
+  int32 total_paid = 6;
+  int32 total_shipping_cost = 7;
+  string full_name = 8;
+  string phone_number = 9;
+  string email = 10;
+  string code = 11;
+  string type = 12;
+  string partner_customer_email = 13;
+  string partner_customer_phone_number = 14;
+  string partner_customer_name = 15;
+  string acquisition_target = 16;
+  string invoice_key = 17;
+  int32 supplier_id = 18;
+  int32 supplier_order_code = 19;
+}
