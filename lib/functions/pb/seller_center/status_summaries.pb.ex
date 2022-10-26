@@ -9,7 +9,7 @@ defmodule OrdersGRPC.ListSummariesResponse do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field(:summaries, 1, repeated: true, type: Grpc.Orders.Summary)
+  field(:summaries, 1, repeated: true, type: OrdersGRPC.Summary)
 end
 
 defmodule OrdersGRPC.Summary do
