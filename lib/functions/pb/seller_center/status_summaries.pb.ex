@@ -27,7 +27,7 @@ defmodule OrdersGRPC.ListOrderStatusSummaries.Service do
     name: "OrdersGRPC.ListOrderStatusSummaries",
     protoc_gen_elixir_version: "0.11.0"
 
-  rpc(:execute, OrdersGRPC.ListSummariesRequest, ListSummariesResponse)
+  rpc(:execute, OrdersGRPC.ListSummariesRequest, OrdersGRPC.ListSummariesResponse)
 end
 
 defmodule OrdersGRPC.ListOrderStatusSummaries.Stub do
