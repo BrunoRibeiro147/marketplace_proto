@@ -1,35 +1,35 @@
-defmodule Grpc.Orders.ListSummariesRequest do
+defmodule OrdersGRPC.ListSummariesRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
 
-defmodule Grpc.Orders.ListSummariesResponse do
+defmodule OrdersGRPC.ListSummariesResponse do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :summaries, 1, repeated: true, type: Grpc.Orders.Summary
+  field(:summaries, 1, repeated: true, type: OrdersGRPC.Summary)
 end
 
-defmodule Grpc.Orders.Summary do
+defmodule OrdersGRPC.Summary do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :supplier_id, 1, type: :int32, json_name: "supplierId"
-  field :amount_created, 2, type: :int32, json_name: "amountCreated"
-  field :amount_confirmed, 3, type: :int32, json_name: "amountConfirmed"
-  field :amount_paid, 4, type: :int32, json_name: "amountPaid"
+  field(:supplier_id, 1, type: :int32, json_name: "supplierId")
+  field(:amount_created, 2, type: :int32, json_name: "amountCreated")
+  field(:amount_confirmed, 3, type: :int32, json_name: "amountConfirmed")
+  field(:amount_paid, 4, type: :int32, json_name: "amountPaid")
 end
 
-defmodule Grpc.Orders.ListOrderStatusSummaries.Service do
+defmodule OrdersGRPC.ListOrderStatusSummaries.Service do
   @moduledoc false
   use GRPC.Service,
-    name: "grpc.orders.ListOrderStatusSummaries",
+    name: "OrdersGRPC.ListOrderStatusSummaries",
     protoc_gen_elixir_version: "0.11.0"
 
-  rpc :execute, Grpc.Orders.ListSummariesRequest, Grpc.Orders.ListSummariesResponse
+  rpc(:execute, OrdersGRPC.ListSummariesRequest, OrdersGRPC.ListSummariesResponse)
 end
 
-defmodule Grpc.Orders.ListOrderStatusSummaries.Stub do
+defmodule OrdersGRPC.ListOrderStatusSummaries.Stub do
   @moduledoc false
-  use GRPC.Stub, service: Grpc.Orders.ListOrderStatusSummaries.Service
+  use GRPC.Stub, service: OrdersGRPC.ListOrderStatusSummaries.Service
 end
