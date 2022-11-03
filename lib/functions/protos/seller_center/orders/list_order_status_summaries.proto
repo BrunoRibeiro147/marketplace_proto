@@ -6,9 +6,7 @@ service ListOrderStatusSummaries {
   rpc execute(ListSummariesRequest) returns (ListSummariesResponse);
 }
 
-message ListSummariesRequest {
-  repeated int32 supplier_ids = 1;
-}
+message ListSummariesRequest {}
 
 message ListSummariesResponse {
   repeated Summary summaries = 1;

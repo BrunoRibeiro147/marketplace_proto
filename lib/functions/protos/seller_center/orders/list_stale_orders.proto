@@ -7,13 +7,7 @@ service ListStaleOrders {
 }
 
 message ListOrdersRequest {
-  repeated AggregateSuppliers aggregate_suppliers = 1;
-  string status = 2;
-}
-
-message AggregateSuppliers {
-  repeated string suppliers = 1;
-  int32 stale_days = 2;
+  string status = 1;
 }
 
 message ListOrdersResponse {
