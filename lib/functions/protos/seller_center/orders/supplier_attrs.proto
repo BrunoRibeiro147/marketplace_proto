@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package grpc.orders;
+
+message SupplierAttrs {
+  int32 supplier_id = 1;
+  string supplier_name = 2;
+  string supplier_email = 3;
+}

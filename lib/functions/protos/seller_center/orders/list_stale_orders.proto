@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package grpc.orders;
 
+import "supplier_attrs.proto";
+
 service ListStaleOrders {
   rpc execute(ListOrdersRequest) returns (ListOrdersResponse);
 }
@@ -16,5 +18,5 @@ message ListOrdersResponse {
 
 message Order {
   string code = 1;
-  int32 supplier_id = 2;
+  SupplierAttrs supplier_attrs = 2;
 }
